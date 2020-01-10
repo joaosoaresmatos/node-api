@@ -23,11 +23,11 @@ module.exports = {
   },
 
   async update(req, res) {
-    const product = await Product.findOneAndUpdate(
-      { _id: req.params.id },
-      res.body
-    );
-
+    console.log("teste");
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    });
+    console.log(product);
     return res.json(product);
   },
 
